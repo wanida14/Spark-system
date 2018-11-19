@@ -1,19 +1,19 @@
 # Spark System
 
 <p align="center">
-    <img src="screenshot/screenshot.gif"></a>
+    <img src="screenshot.gif"></a>
 </p>
 
 > Demo นี้เป็นระบบจัดการฐานน้อมูลนักเรียนของสถาบัน spark coding academy 
 
 ## What’s use
-#### HTML
-#### CSS
-#### PHP
-#### MySql
-#### Javascript
-#### Jquery
-#### Bootstrap4
+    - HTML
+    - CSS
+    - PHP
+    - MySql
+    - Javascript
+    - Jquery
+    - Bootstrap 4
 
 
 ## การทำงาน
