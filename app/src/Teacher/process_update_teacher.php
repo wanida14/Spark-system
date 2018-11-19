@@ -1,0 +1,60 @@
+<?php
+    require('../connect.php'); // เรียกใช้ไฟล์...
+    session_start(); // เรียกใช้ฟังก์ชั่น session
+    
+    if ($_POST) {
+        $name = $_POST['name'];
+        $nickname = $_POST['nickname'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $tel = $_POST['tel'];
+        $address = $_POST['address'];
+        $facebook = $_POST['facebook'];
+        $lindID = $_POST['lindID'];
+        $birthday = $_POST['birthday'];
+        $id = $_POST['id'];
+
+        if (is_uploaded_file($_FILES['myfile']['tmp_name'])) {
+            //upload image file
+            $ext = pathinfo(basename($_FILES['myfile']['name']), PATHINFO_EXTENSION); //นามสกุลไฟล์
+            $new_image_name = 'img-' .uniqid().".".$ext; //สุ่มชื่อไฟล์ใหม่
+            $image_path = "images/"; //เส้นทางที่จะเก็บไฟล์ภาพไว้
+            move_uploaded_file($_FILES['myfile']['tmp_name'],$image_path.$new_image_name); //ฟังค์ชั่นการอัพโหลดไฟล์
+
+            $picture = $new_image_name;//เก็บชื่อไฟล์ภาพใหม่ไว้ในตัวแปลเพื่อลงฐานข้อมุล
+            $sql = "UPDATE teachers 
+                        SET name = '$name', 
+                            nickname = '$nickname', 
+                            username = '$username', 
+                            password = '$password',
+                            email    = '$email',
+                            tel      = '$tel',
+                            address  = '$address',
+                            facebook = '$facebook',
+                            lindID   = '$lindID',
+                            birthday = '$birthday',
+                            picture  = '$picture'
+                    WHERE id = $id";
+        } else {
+            $sql = "UPDATE teachers 
+                        SET name = '$name', 
+                            nickname = '$nickname', 
+                            username = '$username', 
+                            password = '$password',
+                            email    = '$email',
+                            tel      = '$tel',
+                            address  = '$address',
+                            facebook = '$facebook',
+                            lindID   = '$lindID',
+                            birthday = '$birthday'
+                    WHERE id = $id";
+        }
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            header('Location: ../../views/teacher/datas_teacher.php');        
+        }
+    }
+
+?>
+

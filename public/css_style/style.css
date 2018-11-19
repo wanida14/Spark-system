@@ -1,0 +1,30 @@
+.list-group-borderless .list-group-item {
+    border: 0 !important;
+  }
+
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
+.nav-left {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 15px;
+}
+
+.icon {
+  margin-right: 15px;
+}
+
+.table-style {
+  margin-top:50px;
+}
+
+.list-group-item.active {
+  background-color: #73787e;
+}
+
+.button-style {
+  width: 374px;
+}
+
